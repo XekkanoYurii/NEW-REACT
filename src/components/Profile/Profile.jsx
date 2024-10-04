@@ -1,31 +1,23 @@
-import css from "./Profile.module.css";
-const Profile = () => {
+const Profile = (props) => {
+  const {
+    name,
+    phone,
+    email,
+    status,
+    hasPhysicalAddress = false,
+    onSayMyName,
+  } = props;
+
   return (
     <div>
-      <div>
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
-          alt="User avatar"
-        />
-        <p>Petra Marica</p>
-        <p>@pmarica</p>
-        <p>Salvador, Brasil</p>
-      </div>
-      <ul>
-        <li>
-          <span>Followers</span>
-          <span>1000</span>
-        </li>
-        <li>
-          <span>Views</span>
-          <span>2000</span>
-        </li>
-        <li>
-          <span>Likes</span>
-          <span>3000</span>
-        </li>
-      </ul>
+      <h3>Name: {name}</h3>
+      <p>Phone: {phone}</p>
+      <p>Email: {email}</p>
+      <p>Status: {status}</p>
+      <p>Has physical address: {hasPhysicalAddress ? "Yes" : "No"}</p>
+      <button onClick={() => onSayMyName(name)}>Say my name!</button>
     </div>
   );
 };
+
 export default Profile;
